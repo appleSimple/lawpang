@@ -2,6 +2,7 @@
 $tablet: 768px;
 $laptop: 1024px;
 $desktop: 1440px;
+$largeSize: 2560px;
 
 // Mixins
 @mixin tablet {
@@ -22,6 +23,12 @@ $desktop: 1440px;
 	}
 }
 
+@mixin largeSize {
+	@media (min-width: #{$largeSize}){
+		@content;
+	}
+}
+
 @font-face {
 	font-family: 'NanumSquare';
 	src: url(../fonts/Nanumsquare_ac_TTF/NanumSquare_acR.ttf) format('truetype');
@@ -38,6 +45,7 @@ $greyColor: #f4f4f4;
 
 html, body {
 	font-family: 'NanumSquare';
+	height: 100%;
 }
 
 header {
@@ -48,13 +56,8 @@ header {
 	@include tablet {
 		height: 90vh;
 	}
-
 	@include laptop {
 		height: 100vh;
-	}
-
-	@include desktop {
-		
 	}
 
 	.scroll_down {
@@ -87,6 +90,14 @@ header {
 			width: 90%;  height: 20%;
 			text-align: left;
 		}
+		@include desktop {
+			width: 90%;  height: 20%;
+			text-align: left;
+		}
+		@include largeSize {
+			width: 70%;
+			line-height: 52.5px;
+		}
 
 		.content_1 {
 			font-size: 28px;
@@ -94,13 +105,21 @@ header {
 			padding: 20px;
 
 			@include laptop {
-				float: left;
-				margin: 15px 25px 15px 0;
 				color: white;
+				position: absolute;
+				top: 50%;  left: 1%;
+				transform: translateY(-50%);
+			}
+			@include largeSize {
+				font-size: 42px;
 			}
 			
 			span {
 				font-size: 35px;
+
+				@include largeSize {
+					font-size: 52.5px;
+				}
 
 				b {
 					color: red;
@@ -118,6 +137,9 @@ header {
 				top: 50%;  left: 50%;
 				transform: translate(-50%, -50%);
 			}
+			@include largeSize {
+				width: 294px;  height: 129px;
+			}
 		}
 
 		.content_2 {
@@ -126,10 +148,13 @@ header {
 			padding: 25px;
 
 			@include laptop {
-				float: right;
-				margin: 33px 0 0 20px;
-				padding: 20px;
 				color: white;
+				position: absolute;
+				top: 50%;  right: 1%;
+				transform: translateY(-50%);
+			}
+			@include largeSize {
+				font-size: 42px;
 			}
 
 			span {
@@ -148,9 +173,11 @@ section.intro {
 		left: 50%;
 		transform: translateX(-50%);
 	}
+	@include largeSize {
+		width: 60%;
+	}
 
 	.intro_box {
-		border: 1px solid red;
 		font-size: 25px;
 		word-break: keep-all;
 		padding: 40px 0;
@@ -160,6 +187,13 @@ section.intro {
 		@include laptop {
 			font-size: 35px;
 			text-align: left;
+			line-height: 50px;
+			padding: 60px 0;
+		}
+		@include largeSize {
+			font-size: 40px;
+			text-align: left;
+			line-height: 55px;
 			padding: 60px 0;
 		}
 
@@ -171,6 +205,9 @@ section.intro {
 			@include laptop {
 				font-size: 40px;
 			}
+			@include largeSize {
+				font-size: 50px;
+			}
 		}
 	}
 }
@@ -179,6 +216,11 @@ section.process {
 	width: 100%;
 	position: relative;
 	background-color: #{$greyColor};
+	padding-top: 100px;
+
+	@include desktop {
+		padding: 120px 0;
+	}
 
 	h3 {
 		background-color: white;
@@ -188,13 +230,377 @@ section.process {
 		position: absolute;
 		left: 50%;  top: 2%;
 		transform: translateX(-50%);
+
+		@include tablet {
+			font-size: 1.5em;
+			top: 4%;
+		}
+		@include desktop {
+			top: 10%;
+		}
+		@include largeSize {
+			font-size: 1.8em;
+			top: 6%
+		}
 	}
 
 	.process_box {
 		display: grid;
-		grid-template-columns: 200px;
-		grid-template-rows: 200px 200px 200px 200px;
-		margin: 0 auto;
+		grid-template-columns: 100%;
+		grid-template-rows: 300px 300px 300px 300px;
+		justify-items: center;
+
+		@include tablet {
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 300px 300px;
+			place-items: center;
+		}
+		@include laptop {
+			grid-template-columns: 25% 25% 25% 25%;
+			grid-template-rows: 300px;
+		}
+		@include desktop {
+			margin: 0 10%;
+			padding-top: 50px;
+		}
+		@include largeSize {
+			margin: 0 20%;
+		}
+		
+		li {
+			list-style: none;
+
+			&:after {
+				content: url(../img/bottom.png);
+				position: relative;
+				left: 35%;
+				top: 5%;
+
+				@include tablet {
+					content: url(../img/next.png);
+					left: 130%;
+					top: -150px;
+				}
+				@include laptop {
+					left: 110%;
+				}
+				@include desktop {
+					left: 140%;
+				}
+			}
+
+			&:last-child {
+				&:after {
+					opacity: 0;
+				}
+			}
+		}
+		p {
+			font-size: 20px;
+			text-align: center;
+			padding: 8px;
+
+			@include largeSize {
+				font-size: 25px;
+			}
+		}
 	}
 }
 
+section.case {
+	width: 100%;
+	position: relative;
+	word-break: keep-all;
+
+	h1 {
+		text-align: center;
+		padding: 60px 60px 40px 60px;
+		line-height: 30px;
+
+		@include largeSize {
+			font-size: 30px;
+		}
+	}
+	
+	.case_box {
+		background: url(../img/sky_banner.jpg) no-repeat center top / cover;
+		background-attachment: fixed;
+		width: 100%;  height: 300px;
+
+		@include desktop {
+			width: 80%;
+			margin-left: 10%;
+		}
+		@include largeSize {
+			width: 60%;
+			margin-left: 20%;
+		}
+
+		.case_content {
+			background-color: #{$greyColor};
+			width: 90%;  height: 200px;
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, 50px);
+
+			@include desktop {
+				width: 50%;
+			}
+			@include largeSize {
+				width: 40%;
+			}
+
+			p {
+				font-size: 18px;
+				text-align: center;
+				line-height: 40px;
+
+				&:first-child {
+					margin-top: 35px;
+				}
+
+				@include desktop {
+					font-size: 23px;
+				}
+
+				span {
+					color: #{$mainColor};
+					font-weight: 600;
+					font-size: 23px;
+
+					@include desktop {
+						font-size: 28px;
+					}
+				}
+			}
+		}
+	}
+}
+
+section.faq {
+	width: 95%;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	word-break: keep-all;
+
+	h1 {
+		text-align: center;
+		padding: 60px 60px 5px 60px;
+
+		@include largeSize {
+			font-size: 30px;
+		}
+	}
+	
+	>p {
+		color: grey;
+		font-size: 12px;
+		text-align: center;
+		padding-bottom: 20px;
+	}
+
+	.faq_box {
+		width: 100%;
+		line-height: 25px;
+
+		@include desktop {
+			width: 80%;
+			margin-left: 10%;
+		}
+		@include largeSize {
+			width: 60%;
+			margin-left: 20%;
+		}
+
+		.question {
+
+			span {
+				border-top: 1.5px solid lightgrey;
+				display: block;
+				font-weight: 600;
+				padding: 20px 10px;
+				cursor: pointer;
+			}
+
+			p {
+				padding: 30px 15px;
+				background-color: rgba($greyColor, 0.5);
+				position: relative;
+				transition: all 0.5s;
+			}
+			p.dis_none {
+				height: 0;
+				opacity: 0;
+				padding: 0 0;
+			}
+		}
+	}
+}
+
+section.ask {
+	width: 100%;  height: 100%;
+	position: relative;
+	margin: 100px 0;
+
+	@include desktop {
+		width: 80%;
+		margin-left: 10%;
+	}
+	@include largeSize() {
+		width: 60%;
+		margin-left: 20%;
+	}
+
+	fieldset {
+		border: none;
+
+		input[type=text] {
+			border: none;
+			border-bottom: 1px solid grey;
+			width: 100%;  height: 40px;
+			outline: none;
+			font-size: 15px;
+			margin-bottom: 15px;
+
+			@include tablet {
+				width: 48%;
+				display: block;
+				float: left;
+				margin-right: 2%;
+			}
+		}
+	}
+
+	.ask_intro {
+		border: 1px solid grey;
+		width: 95%;
+		margin: 20px auto;
+		word-break: keep-all;
+		padding: 20px 0;
+
+		@include laptop {
+			float: left;
+			width: 46%; height: 250px;
+			margin: 0 2%;
+			position: relative;
+		}
+
+		.ask_1 {
+			width: 50%;
+			padding-bottom: 30px;
+			margin: 0 auto;
+			line-height: 30px;
+			
+			@include tablet {
+				width: 100%;
+			}
+			@include laptop {
+				width: 35%;
+				float: left;
+				padding-bottom: 0;
+				position: absolute;
+				top: 50%;  left: 25%;
+				transform: translate(-50%, -50%);
+			}
+
+			h2 {
+				text-align: center;
+			}
+		}
+
+		.ask_2 {
+			padding-left: 10px;
+			text-align: center;
+			
+			@include laptop {
+				float: right;
+				width: 50%;
+				position: absolute;
+				top: 50%;  left: 75%;
+				transform: translate(-50%, -50%);
+			}
+			span {
+				font-size: 13px;
+				color: grey;
+			}
+
+			p {
+				font-size: 13px;
+				padding-bottom: 5px;
+			}
+		}
+	}
+
+	.ask_content {
+		width: 95%;
+		margin: 30px auto;
+
+
+		textarea {
+			width: 96%;  height: 150px;
+			padding: 5px;
+			outline: none;
+			border: none;
+			border-radius: 5px;
+			background-color: #{$greyColor};
+		}
+
+		input[type=submit] {
+			display: block;
+			border: none;
+			border-radius: 20px;
+			outline: none;
+			font-size: 14px;
+			color: white;
+			padding: 10px 30px;
+			margin: 30px auto;
+			background-color: #{$mainColor};
+			cursor: pointer;
+
+			@include laptop() {
+				margin-top: 60px;
+			}
+		}
+	}
+}
+
+footer {
+	width: 100%;
+	position: relative;
+	background-color: #{$greyColor};
+	word-break: keep-all;
+	padding: 25% 0;
+
+	@include tablet {
+		padding: 15% 0;
+	}
+	@include laptop {
+		padding: 10% 0;
+	}
+	@include largeSize {
+		padding: 5% 0;
+	}
+
+	.footer_box {
+		width: 95%;
+		margin-left: 2.5%;
+
+		@include desktop {
+			width: 80%;
+			margin-left: 10%;
+		}
+		@include largeSize {
+			width: 60%;
+			margin-left: 20%;
+		}
+	}
+
+	h4 {
+		margin-bottom: 50px;
+	}
+	p {
+		font-size: 13px;
+		line-height: 20px;
+	}
+}

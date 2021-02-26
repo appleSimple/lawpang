@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>LawPangㅣ악성 댓글 잡아드립니다.</title>
-	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/style.min.css">
 </head>
 <body>
 	<div class="wrapper">
@@ -26,30 +26,103 @@
 			<ul class="process_box">
 				<li>
 					<img src="./img/process_1.png" alt="">
-					<p></p>
+					<p>문의 및 상담</p>
 				</li>
 				<li>
 					<img src="./img/process_2.png" alt="">
-					<p></p>
+					<p>악플 수집 시작</p>
 				</li>
 				<li>
 					<img src="./img/process_3.png" alt="">
-					<p></p>
+					<p>고소 준비 및 진행</p>
 				</li>
 				<li>
 					<img src="./img/process_4.png" alt="">
-					<p></p>
+					<p>사후처리</p>
 				</li>
 			</ul>
 		</section>
 		<section class="case">
-			<p>현재까지 로팡과 함께한 사례들</p>
+			<h1>현재까지 로팡과 함께한 사례들</h1>
 			<div class="case_box">
-				<p>함께한 연예인&인플루언서 <span>20명</span></p>
-				<p>누적 상담수 <span>50건</span></p>
-				<p>누적 고소건 수 <span>3200건</span></p>
+				<div class="case_content">
+					<p>함께한 연예인&인플루언서 <span>20명</span></p>
+					<p>누적 상담수 <span>50건</span></p>
+					<p>누적 고소건 수 <span>3200건</span></p>
+				</div>
 			</div>
 		</section>
+		<section class="faq">
+			<h1>FAQ</h1>
+			<p>자주 묻는 질문</p>
+			<div class="faq_box">
+				<div class="question">
+					<span>Q. 정말 모든 악플러를 잡을 수 있나요?</span>
+					<p>당연하죠. 저희가 개발한 AI봇이 실시간으로 20개의 사이트와 포털 뉴스, SNS 등에 있는 악플들을 실시간으로 수집하고 있습니다.</p>
+				</div>
+				<div class="question">
+					<span>Q. 변호사 선임과 고소 방식은 어떻게 되나요?</span>
+					<p class="dis_none">이미 변호사 선임을 하신 분은 바로 고소장이 작성 가능하도록 수집 자료를 보내드립니다. 
+						<br>아직 변호사 선임을 하지 않으신 분은 저희와 협력하고 계시는 변호사와 함께 고소 진행을 도와드리고 있습니다.
+					</p>
+				</div>
+				<div class="question">
+					<span>Q. 비용은 어떻게 되나요?</span>
+					<p class="dis_none">조사 비용, 착수금은 합의금에서 일정 부분(퍼센트)을 수수료로 지불되기 때문에 상담부터 고소까지 비용이 발생하지 않습니다. 
+						<br>로팡 협력 변호사와 함께할 경우 변호사 선임 비용도 마찬가지로 합의금에서 일정 부분(퍼센트) 수수료로 지불됩니다.
+					</p>
+				</div>
+				<div class="question">
+					<span>Q. 상담 내용은 기록이 남나요?</span>
+					<p class="dis_none">로팡에서는 상담 또는 계약에 대한 내용은 절대 비밀로 해드리기 때문에 안심하고 문의 주시기 바랍니다.</p>
+				</div>
+			</div>
+		</section>
+		<section class="ask">
+			<div class="ask_box">
+				<div class="ask_intro">
+					<div class="ask_1">
+						<h2>LawPang은 고객의 목소리에 집중합니다</h2>
+					</div>
+					<div class="ask_2">
+						<span>고객센터</span>
+						<p>070-1234-5678</p>
+						<span>이메일</span>
+						<p>abc@naver.com</p>
+						<span>상담시간</span>
+						<p>10:00 ~ 17:00</p>
+					</div>
+				</div>
+				<div class="ask_content">
+					<form action="submit">
+						<fieldset>
+							<input type="text" placeholder="이름">
+							<input type="text" placeholder="직업">
+						</fieldset>
+						<fieldset>
+							<input type="text" placeholder="이메일">
+							<input type="text" placeholder="연락처">
+						</fieldset>
+						<fieldset>
+							<textarea name="content" id="" placeholder="문의 내용을 입력하세요."></textarea><br>
+							<input type="checkbox"> 개인정보제공 동의 확인
+						</fieldset>
+						<input type="submit" value="문의하기">
+					</form>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="footer_box">
+				<h4>소개자료</h4>
+				<p>(주)로팡</p>
+				<p>사업자등록번호 000-00-00000 ㅣ 대표 박영호</p>
+				<p>(00000) 서울특별시 ㅇㅇ구 ㅇㅇ길00-00 ㅣ 대표번호 000-0000-0000</p>
+				<br>
+				<p>Copyright ⓒ LawPang Inc. All Rights Reserved.</p>
+			</div>
+		</footer>
 	</div>
+<script src="./js/script.js"></script>
 </body>
 </html>
